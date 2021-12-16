@@ -62,8 +62,6 @@ router.get('/serial/:serial_num', (req, res, next) => {
 router.get('/id/:params', (req, res, next) => {
     let device_id = req.params.params.slice(0, req.params.params.indexOf(':'));
     let serial_num = req.params.params.slice(req.params.params.indexOf(':') + 1);
-    console.log(device_id);
-    console.log(serial_num);
     const query = `SELECT "Wattage", "DateTime" FROM "readings"
                             WHERE "Serial_Number" = '${serial_num}'
                           AND "Device_ID" = '${device_id}'`;
